@@ -11,11 +11,28 @@ In notify.js a new constructor is made called "Notify". Simply import notify.js 
 Create a notification.
 ```
 Notify.add({
-  title: 'My title, optional',
-  message: 'A message, optional'
+  title: 'My title',
+  message: 'A message'
 });
 ```
+
 This will add a new notification to the local notifications collection. By default it will expire in 2000 milliseconds. When it expires it will automaticly get deleted from the collection.
+
+Notify will always return the _id of the notification. So if you want to remove the notification yourself you can set  expireAt to 0, and remove the notification later.
+```
+var message = {
+  title: 'A title',
+  message: 'My message,
+  expireAt: 0
+};
+
+// Add the notification, will return _id
+var notification = Notify.add(message);
+
+// Later on, remove the notification using the returned _id.
+Notify.remove(notification);
+
+```
 
 **Step 2**
 You will need to roll your own template code. This depends on the template engine you are using. For example in Blaze:
