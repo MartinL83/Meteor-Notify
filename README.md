@@ -56,7 +56,7 @@ Then in your HTML
 </template>
 
 <template name="Notification">
-  <div class="notification notification-type" id="notification-{{_id}}">
+  <div class="notification notification-{{type}}" id="notification-{{_id}}">
     {{#if title}}
       <strong>{{title}} </strong>
     {{/if}}
